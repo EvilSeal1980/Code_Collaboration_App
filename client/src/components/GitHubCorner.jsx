@@ -1,7 +1,9 @@
 import useSetting from "@/hooks/useSetting"
+import useWindowDimensions from "@/hooks/useWindowDimensions"
 
 function GitHubCorner() {
     const { showGitHubCorner } = useSetting()
+    const { width } = useWindowDimensions()
 
     return (
         <a
@@ -11,7 +13,9 @@ function GitHubCorner() {
             aria-label="View source on GitHub"
             target="_blank"
             rel="noreferrer"
-            style={{ display: showGitHubCorner ? "block" : "none" }}
+            style={{
+                display: showGitHubCorner && width > 640 ? "block" : "none",
+            }}
         >
             <svg
                 width="150"
