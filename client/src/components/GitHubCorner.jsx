@@ -1,11 +1,18 @@
+import { useContext } from "react"
+import SettingContext from "../context/SettingContext"
+
 function GitHubCorner() {
+    const { showGitHubCorner } = useContext(SettingContext)
+
     return (
         <a
             href="https://github.com/EvilSeal1980/Code_Collaboration_App"
             className="github-corner block"
+
             aria-label="View source on GitHub"
             target="_blank"
             rel="noreferrer"
+            style={{ display: showGitHubCorner ? "block" : "none" }}
         >
             <svg
                 width="150"
